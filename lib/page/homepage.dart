@@ -21,6 +21,15 @@ class _HomePageState extends State<HomePage> {
     '2', '3', '-', '0', '.', '=', '+',
   ];
 
+  // for Operational signs
+  
+  bool isOperator(String x) {
+    if (x == '/' || x == 'x' || x == '-' || x == '+' || x == '=') {
+      return true;
+    }
+    return false;
+  }
+
   // function to calculate the input operation
   void equalPressed() {
     String finaluserinput = userInput;
@@ -51,7 +60,7 @@ class _HomePageState extends State<HomePage> {
                     alignment: Alignment.centerRight,
                     child: Text(
                       userInput,
-                      style: const TextStyle(fontSize: 18, color: Colors.white),
+                      style: const TextStyle(fontSize: 40, color: Colors.white),
                     ),
                   ),
                   Container(
@@ -61,11 +70,12 @@ class _HomePageState extends State<HomePage> {
                       answer,
                       style: const TextStyle(
                           fontSize: 30,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold),
+                          color: Colors.orange,
+                          fontWeight: FontWeight.bold)
                     ),
                   )
-                ]),
+                ]
+                ),
           ),
           Expanded(
             flex: 3,
@@ -159,13 +169,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-    );
-  }
-
-  bool isOperator(String x) {
-    if (x == '/' || x == 'x' || x == '-' || x == '+' || x == '=') {
-      return true;
-    }
-    return false;
+    
+      );
   }
 }
